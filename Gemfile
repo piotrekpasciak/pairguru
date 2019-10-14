@@ -38,6 +38,6 @@ end
 
 group :test do
   gem "shoulda-matchers"
-  gem 'vcr', '~> 4.0'
-  gem 'webmock', '~> 3.5', '>= 3.5.1'
+  gem "vcr", "~> 4.0"
+  gem "webmock", "~> 3.5", ">= 3.5.1"
 end

@@ -1,9 +1,9 @@
-require 'vcr'
-require 'webmock/rspec'
+require "vcr"
+require "webmock/rspec"
 
 VCR.configure do |config|
   config.allow_http_connections_when_no_cassette = false
-  config.cassette_library_dir                    = 'spec/vcr'
+  config.cassette_library_dir                    = "spec/vcr"
   config.ignore_localhost                        = true
   config.default_cassette_options                = { record: :new_episodes }
 
