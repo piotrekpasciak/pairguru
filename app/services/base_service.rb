@@ -1,4 +1,10 @@
 class BaseService
+  CONNECTION_ERRORS = [
+    Timeout::Error, Errno::EINVAL, Errno::ECONNRESET,
+    Errno::ECONNREFUSED, EOFError, Net::HTTPBadResponse,
+    Net::HTTPHeaderSyntaxError, Net::ProtocolError
+  ].freeze
+
   Result = Struct.new(:success, :value) do
     def success?
       success
