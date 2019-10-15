@@ -9,5 +9,5 @@
 #
 
 class Genre < ApplicationRecord
-  has_many :movies, dependent: :nullify
+  has_many :movies
 end

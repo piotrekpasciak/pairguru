@@ -13,7 +13,7 @@
 #
 
 class Movie < ApplicationRecord
-  belongs_to :genre
+  belongs_to :genre, counter_cache: true
 
   attr_accessor :movies_api_data
 
