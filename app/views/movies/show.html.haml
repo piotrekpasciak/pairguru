@@ -1,4 +1,4 @@
-.movie-show-page
+.movies-show
   %h1= @movie.title
   .row.movie-wrapper
     .col-md-4
@@ -6,10 +6,10 @@
     .col-md-8
       %section
         %h3.subtitle Rating
-        = @movie.movies_api_data[:rating]
+        = @movie.rating
       %section
         %h3.subtitle Plot Overview
-        = @movie.movies_api_data[:plot]
+        = @movie.plot
       %section
         %h3.subtitle Description
         = @movie.description

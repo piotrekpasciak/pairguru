@@ -16,4 +16,12 @@ class MovieDecorator < Draper::Decorator
 
     "#{MOVIES_API_IMAGES_URL}#{image_name}"
   end
+
+  def plot
+    movies_api_data.to_h[:plot]
+  end
+
+  def rating
+    movies_api_data.to_h[:rating]
+  end
 end

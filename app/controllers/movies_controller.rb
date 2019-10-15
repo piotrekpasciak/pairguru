@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   before_action :load_movie, only: [:show, :send_info]
 
   def index
-    @movies = Movie.all.decorate
+    @movies = Movie.all.decorate.each(&:fetch_movies_api_data!)
   end
 
   def show

@@ -4,7 +4,7 @@
       %tr
         %td= i + 1
         %td
-          %img.img-rounded{ src: movie.cover }
+          = image_tag movie.poster_url, alt: movie.title, class: 'img-rounded poster-image'
         %td
           %h4
             = link_to movie.title, movie_path(movie)
@@ -12,4 +12,8 @@
             %strong
               = link_to movie.genre.name, movies_genre_path(movie.genre)
             = ' (' + movie.released_at.to_s + ')'
-          %p= movie.description
+          %p
+            %strong
+              Rating:
+              = movie.rating
+          %p= movie.plot

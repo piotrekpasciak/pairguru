@@ -10,6 +10,7 @@ module Movies
     def call
       uri      = URI.parse(URI.escape("#{MOVIES_API_URL}/movies/#{movie_name}"))
       http     = prepare_http_object(uri)
+
       response = http.request(Net::HTTP::Get.new(uri.request_uri))
 
       if response.code == "200"
