@@ -44,7 +44,7 @@ class MovieSerializer
     {
       id:               genre.id,
       name:             genre.name,
-      number_of_movies: genre.movies.count
+      number_of_movies: genre.movies.size
     }
   end
 end

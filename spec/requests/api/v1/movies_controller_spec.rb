@@ -33,7 +33,7 @@ describe Api::V1::MoviesController, type: :request do
               genre: {
                 id:               movie.genre.id,
                 name:             movie.genre.name,
-                number_of_movies: movie.genre.movies.count
+                number_of_movies: movie.genre.movies.size
               }
             }
           ]
@@ -78,7 +78,7 @@ describe Api::V1::MoviesController, type: :request do
           genre: {
             id:               movie.genre.id,
             name:             movie.genre.name,
-            number_of_movies: movie.genre.movies.count
+            number_of_movies: movie.genre.movies.size
           }
         }.to_json
       end

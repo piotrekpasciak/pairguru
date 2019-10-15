@@ -47,7 +47,7 @@ describe MovieSerializer do
             genre: {
               id:               movie.genre.id,
               name:             movie.genre.name,
-              number_of_movies: movie.genre.movies.count
+              number_of_movies: movie.genre.movies.size
             }
           }
         end
