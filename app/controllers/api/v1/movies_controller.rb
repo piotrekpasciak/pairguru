@@ -4,18 +4,37 @@ module Api
       before_action :load_movie, only: :show
 
       def index
-        movies = ::Movie.all
-        render json: ::MoviesSerializer.new(movies: movies).serialize, status: :ok
+        @movies = ::Movie.includes(:genre).all
+        render json: serialized_movies, status: :ok
       end
 
       def show
-        render json: ::MovieSerializer.new(movie: @movie).serialize, status: :ok
+        render json: serialized_movie, status: :ok
       end
 
       private
 
       def load_movie
-        @movie = ::Movie.find(params[:id])
+        @movie = ::Movie.includes(:genre).find(params[:id])
+      end
+
+      def serialized_movies
+        {
+          movies: @movies.map do |movie|
+            ::MovieSerializer.new(
+              movie:              movie,
+              with_genre_details: params[:with_genre_details]
+            ).serialize
+          end
+        }
+      end
+
+      def serialized_movie
+        ::MovieSerializer.new(
+          movie:              @movie,
+          with_movie_details: true,
+          with_genre_details: params[:with_genre_details]
+        ).serialize
       end
     end
   end
