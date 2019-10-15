@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://pairguru-api.herokuapp.com/api/v1/movies/The%20Dark%20Knight
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Mon, 14 Oct 2019 21:06:58 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"252d46458107981788547b1961d247e4"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8e2b9d6e-8be4-4ba9-ba75-9d83e9a8bea7
+      X-Runtime:
+      - '0.013091'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"7","type":"movie","attributes":{"title":"The Dark Knight","plot":"When
+        the menace known as the Joker wreaks havoc and chaos on the people of Gotham,
+        the Dark Knight must come to terms with one of the greatest psychological
+        tests of his ability to fight injustice.","rating":9.0,"poster":"/the_dark_knight.jpg"}}}'
+    http_version: 
+  recorded_at: Mon, 14 Oct 2019 21:06:58 GMT
+recorded_with: VCR 4.0.0
