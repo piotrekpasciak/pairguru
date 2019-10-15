@@ -1,8 +1,8 @@
 require "rails_helper"
 
 describe "Movies requests", type: :request do
-  let!(:batman_movie) { create(:movie, title: "The Dark Knight") }
-  let!(:movies) { create_list(:movie, 3) }
+  let!(:batman_movie)       { create(:movie, title: "The Dark Knight") }
+  let!(:non_existing_movie) { create_list(:movie, 3, title: "Non existing title") }
 
   describe "movies list" do
     it "displays movies list" do
