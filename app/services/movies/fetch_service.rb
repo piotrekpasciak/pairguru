@@ -27,7 +27,8 @@ module Movies
 
     def prepare_http_object(uri)
       Net::HTTP.new(uri.host, uri.port).tap do |http|
-        http.use_ssl = true
+        http.use_ssl      = true
+        http.read_timeout = 2
       end
     end
 
@@ -36,7 +37,7 @@ module Movies
     end
 
     def handle_failure(error)
-      Logger.new(LOGGER_URL).error(error.message)
+      Logger.new(LOGGER_URL).error("##{movie_name} - #{error.message}")
       failure(error.message)
     end
   end

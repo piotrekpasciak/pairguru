@@ -1,5 +1,18 @@
-%h1= @movie.title
-.jumbotron
-  = @movie.description
-- if user_signed_in?
-  %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
+.movie-show-page
+  %h1= @movie.title
+  .row.movie-wrapper
+    .col-md-4
+      = image_tag @movie.poster_url, alt: @movie.title, class: 'poster-image'
+    .col-md-8
+      %section
+        %h3.subtitle Rating
+        = @movie.movies_api_data[:rating]
+      %section
+        %h3.subtitle Plot Overview
+        = @movie.movies_api_data[:plot]
+      %section
+        %h3.subtitle Description
+        = @movie.description
+
+  - if user_signed_in?
+    %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
