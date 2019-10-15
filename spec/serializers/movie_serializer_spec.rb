@@ -1,20 +1,17 @@
 require "rails_helper"
 
-describe MoviesSerializer do
-  subject { described_class.new(movies: movies) }
+describe MovieSerializer do
+  subject { described_class.new(movie: movie) }
 
   describe "#serialize" do
-    let(:movie)  { create(:movie) }
-    let(:movies) { [movie] }
+    let(:movie) { create(:movie) }
 
     let(:expected_result) do
       {
-        movies: [
-          {
-            id:    movie.id,
-            title: movie.title
-          }
-        ]
+        id:          movie.id,
+        title:       movie.title,
+        description: movie.description,
+        released_at: movie.released_at
       }
     end
 
