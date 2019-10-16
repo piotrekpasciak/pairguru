@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   before_action :load_movie, only: [:show, :send_info]
 
   def index
-    @movies = Movie.all.decorate.each(&:fetch_movies_api_data!)
+    @movies = Movie.includes(:genre).all.decorate.each(&:fetch_movies_api_data!)
   end
 
   def show
@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def send_info
-    MovieInfoMailer.send_info(current_user, @movie).deliver_now
+    MovieInfoMailer.send_info(current_user, @movie).deliver_later
     redirect_back(fallback_location: root_path, notice: "Email sent with movie info")
   end
 
