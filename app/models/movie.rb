@@ -13,6 +13,8 @@
 #
 
 class Movie < ApplicationRecord
+  has_many :comments, -> { order("created_at desc") }, dependent: :destroy
+
   belongs_to :genre, counter_cache: true
 
   validates :title, title_brackets: true

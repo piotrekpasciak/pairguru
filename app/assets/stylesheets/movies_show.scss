@@ -15,4 +15,24 @@
   section {
     margin-bottom: 15px;
   }
+
+  .comment {
+    &__textarea {
+      height: 150px;
+      resize: none;
+    }
+
+    &__author {
+      margin-bottom: 0;
+    }
+
+    &__wrapper {
+      overflow: hidden;
+    }
+
+    &__remove-wrapper {
+      overflow: hidden;
+      margin-top: 5px;
+    }
+  }
 }
