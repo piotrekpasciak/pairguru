@@ -10,6 +10,7 @@ require "shoulda/matchers"
 SimpleCov.start "rails"
 
 require "support/vcr"
+require "support/warden"
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
