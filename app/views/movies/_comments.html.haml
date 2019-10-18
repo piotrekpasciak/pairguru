@@ -1,0 +1,12 @@
+.panel
+  %h3 Comments:
+  - comments.each do |comment|
+    .well.comment__wrapper
+      %p= comment.message
+      %p.comment__author
+        %span
+          Created at:
+          = comment.created_at.strftime("%-d/%-m/%y %H:%M")
+        %span.pull-right
+          Author:
+          = comment.user.name

@@ -16,8 +16,18 @@
     margin-bottom: 15px;
   }
 
-  .comment-textarea {
-    height: 150px;
-    resize: none;
+  .comment {
+    &__textarea {
+      height: 150px;
+      resize: none;
+    }
+
+    &__author {
+      margin-bottom: 0;
+    }
+
+    &__wrapper {
+      overflow: hidden;
+    }
   }
 }

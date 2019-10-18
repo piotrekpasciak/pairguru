@@ -1,7 +1,5 @@
-.row
-  .col-md-8
-    %H3 Add comment:
-    = form_with model: Comment.new, url: movie_comments_path(movie) do |f|
-      .form-group
-        = f.text_area :message, class: 'form-control comment-textarea'
-      = f.submit 'Create', class: 'btn btn-primary pull-right'
+%h3 Add comment:
+= form_with model: Comment.new, url: movie_comments_path(movie) do |f|
+  .form-group
+    = f.text_area :message, class: 'form-control comment__textarea'
+  = f.submit 'Create', class: 'btn btn-primary pull-right'

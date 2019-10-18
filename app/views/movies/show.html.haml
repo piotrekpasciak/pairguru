@@ -16,4 +16,7 @@
       %section
         - if user_signed_in?
           %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
-          = render 'comment_form', movie: @movie
+          .row
+            .col-md-8
+              = render 'comment_form', movie: @movie
+              = render 'comments', comments: @movie.comments

@@ -35,6 +35,7 @@ describe "Movies requests", type: :request do
         expect(page).to have_current_path(movie_path(batman_movie))
         expect(page).to have_http_status(:ok)
         expect(page).to have_selector("div#flash_notice", text: "Comment created successfully")
+        expect(page).to have_selector("p", text: "Comment Message")
       end
     end
 
