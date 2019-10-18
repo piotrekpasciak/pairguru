@@ -15,6 +15,8 @@
 class Movie < ApplicationRecord
   belongs_to :genre, counter_cache: true
 
+  validates :title, title_brackets: true
+
   attr_accessor :movies_api_data
 
   def fetch_movies_api_data!
