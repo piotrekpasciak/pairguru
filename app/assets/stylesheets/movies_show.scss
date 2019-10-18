@@ -29,5 +29,10 @@
     &__wrapper {
       overflow: hidden;
     }
+
+    &__remove-wrapper {
+      overflow: hidden;
+      margin-top: 5px;
+    }
   }
 }

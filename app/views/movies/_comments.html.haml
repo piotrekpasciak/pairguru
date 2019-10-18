@@ -10,3 +10,6 @@
         %span.pull-right
           Author:
           = comment.user.name
+      - if comment.user == current_user
+        %div.comment__remove-wrapper
+          = link_to 'Remove', movie_comment_path(movie, comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'pull-right btn btn-danger'

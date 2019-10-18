@@ -24,7 +24,7 @@ describe "Movies requests", type: :request do
     end
 
     context "when user adds valid comment" do
-      it "creates comment and display success messages" do
+      it "creates comment and displays success messages" do
         VCR.use_cassette("movies_api/success_movie_name") do
           visit movie_path(batman_movie)
         end
@@ -50,6 +50,30 @@ describe "Movies requests", type: :request do
         expect(page).to have_current_path(movie_path(batman_movie))
         expect(page).to have_http_status(:ok)
         expect(page).to have_selector("div#flash_error", text: "Message can't be blank")
+      end
+    end
+
+    context "when user clicks remove button" do
+      let!(:comment) do
+        create(
+          :comment,
+          message: "Comment for removal",
+          movie:   batman_movie,
+          user:    user
+        )
+      end
+
+      it "removes the comment and displays success message" do
+        VCR.use_cassette("movies_api/success_movie_name") do
+          visit movie_path(batman_movie)
+        end
+
+        click_link "Remove"
+
+        expect(page).to have_current_path(movie_path(batman_movie))
+        expect(page).to have_http_status(:ok)
+        expect(page).to have_selector("div#flash_notice", text: "Comment destroyed successfully")
+        expect(page).not_to have_content("Comment for removal")
       end
     end
   end

@@ -19,4 +19,6 @@
           .row
             .col-md-8
               = render 'comment_form', movie: @movie
-              = render 'comments', comments: @movie.comments
+        .row
+          .col-md-8
+            = render 'comments', movie: @movie, comments: @movie.comments
