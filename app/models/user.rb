@@ -24,6 +24,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :comments, dependent: :destroy
+  has_many :last_week_comments, -> { where("comments.created_at >= ?", 7.days.ago) }, class_name: "Comment"
 
   validates :phone_number, format: { with: /\A[+]?\d+(?>[- .]\d+)*\z/, allow_nil: true }
 end
