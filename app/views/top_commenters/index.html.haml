@@ -1,0 +1,18 @@
+%h3.text-center Top Commenters
+
+.row
+  .col-md-6.col-md-offset-3
+    %table.table
+      %thead
+        %tr
+          %th #
+          %th Name
+          %th E-mail
+          %th Comments Count
+      %tbody
+        - @top_commenters.each.with_index(1) do |top_commenter, index|
+          %tr
+            %th= index
+            %td= top_commenter.name
+            %td= top_commenter.email
+            %td= top_commenter.last_week_comments_count
